@@ -1,0 +1,31 @@
+# Tcl/Tk implementation of Vagrant GUI front end
+
+## Prerequisites
+
+* [Vagrant] v1.6 or later
+* [Tcl/Tk] v8.5 or later
+
+[Vagrant]: https://www.vagrantup.com/ "Vagrant"
+[Tcl/Tk]: http://www.tcl.tk/software/tcltk/ "Tcl/Tk Software"
+
+## How to Run the Tool
+
+### On Linux and Mac OS X:
+
+Invoke the script from your terminal:
+
+    wish vagrantgui.tcl
+    
+or if you set executable permission to the file, just type:
+
+    vagrantgui.tcl
+
+### On Windows:
+
+After [AtiveTcl] installed, double-click the file `vagrantgui.tcl`.
+
+[AtiveTcl]: http://www.activestate.com/activetcl "ActiveTcl is Tcl for Windows, Mac, Linux, AIX, HP-UX &amp; Solaris | ActiveState"
+
+---
+
+Copyright &copy; 2015 Upper Stream Software.
