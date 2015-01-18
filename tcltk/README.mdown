@@ -26,6 +26,10 @@ After [AtiveTcl] installed, double-click the file `vagrantgui.tcl`.
 
 [AtiveTcl]: http://www.activestate.com/activetcl "ActiveTcl is Tcl for Windows, Mac, Linux, AIX, HP-UX &amp; Solaris | ActiveState"
 
+## Screenshot
+
+![Screenshot on Xubunt](screenshot.png "Screenshot on Xubuntu")
+
 ---
 
 Copyright &copy; 2015 Upper Stream Software.
