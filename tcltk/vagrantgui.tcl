@@ -37,6 +37,7 @@ proc getVmStatus {id} {
 }
 
 proc getVmDirectory {id} {
+	global vms
 	return [dict get [dict get $vms $id] directory]
 }
 
