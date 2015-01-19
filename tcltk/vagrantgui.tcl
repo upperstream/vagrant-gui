@@ -15,7 +15,7 @@
 # limitations under the License.
 
 set path [file dirname [file normalize $argv0]]
-source [file join $path vagrantutils-0.0.1.tm]
+source [file join $path vagrantbridge-0.0.1.tm]
 source [file join $path vagrantguitk-0.0.1.tm]
 
 proc refreshTable {statuses} {
