@@ -36,7 +36,7 @@ proc getGlobalStatus {} {
 }
 
 proc getVersion {} {
-	return [split [lindex [exec vagrant --version] 1] .]
+	return [split [lindex [exec vagrant --version] end] .]
 }
 
 proc startVm {path} {
