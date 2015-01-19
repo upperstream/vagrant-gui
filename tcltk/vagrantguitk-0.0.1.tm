@@ -12,6 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+proc popupMenu {x y} {
+	if {[llength [.tree selection]] > 0} {
+		tk_popup .popup_menu $x $y
+	}
+}
+
 proc createGui {} {
 	option add *Menu.tearOff 0
 	menu .mbar
@@ -39,9 +45,12 @@ proc createGui {} {
 	grid columnconfigure . 0 -weight 1
 	grid rowconfigure . 0 -weight 1
 
-	bind .tree <ButtonPress-3> {
-		if {[llength [.tree selection]] > 0} {
-			tk_popup .popup_menu %X %Y
+	if {[tk windowingsystem]=="aqua"} {
+		bind .tree <ButtonPress-2> { popupMenu %X %Y }
+		bind .tree <Control-ButtonPress-1> { popupMenu %X %Y }
+	} else {
+		bind .tree <ButtonPress-3> {
+			popupMenu %X %Y
 		}
 	}
 
