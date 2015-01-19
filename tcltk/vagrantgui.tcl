@@ -94,6 +94,19 @@ proc reload {id} {
 	refresh
 }
 
+if {[catch {lassign [getVersion] major minor micro} errorMessage]} {
+	set message "Can't find Vagrant ($errorMessage)"
+	puts stderr $message
+	alertDialog $message
+	exit 1
+}
+if {$major < 1 || $minor < 6} {
+	set message "Vagrant version must be 1.6 onwards"
+	puts stderr $message
+	alertDialog $message
+	exit 1
+}
+
 createGui
 set vms [getGlobalStatus]
 refreshTable $vms
