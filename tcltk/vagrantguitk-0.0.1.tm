@@ -56,8 +56,9 @@ proc createGui {} {
 
 	menu .popup_menu
 	.popup_menu add command -label Start -underline 0 -command { start [.tree selection] }
-	.popup_menu add command -label Suspend -underline 1 -comman { suspend [.tree selection] }
-	.popup_menu add command -label Stop -underline 3 -comman { stop [.tree selection] }
+	.popup_menu add command -label Suspend -underline 1 -command { suspend [.tree selection] }
+	.popup_menu add command -label Stop -underline 3 -command { stop [.tree selection] }
+	.popup_menu add command -label Reload -underline 2 -command { reload [.tree selection] }
 }
 
 proc alertDialog {msg} {

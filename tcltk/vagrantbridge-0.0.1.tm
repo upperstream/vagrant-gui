@@ -65,3 +65,12 @@ proc stopVm {path} {
 	cd $pwd
 	return $output
 }
+
+proc reloadVm {path} {
+	set pwd [pwd]
+	cd $path
+	puts "Reloading VM in $path"
+	set output [exec vagrant reload]
+	cd $pwd
+	return $output
+}

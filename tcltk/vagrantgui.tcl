@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+package require Tk
+
 set path [file dirname [file normalize $argv0]]
 source [file join $path vagrantbridge-0.0.1.tm]
 source [file join $path vagrantguitk-0.0.1.tm]
@@ -84,6 +86,11 @@ proc stop {id} {
 	}
 	global vms
 	puts [stopVm [getVmDirectory $id]]
+	refresh
+}
+
+proc reload {id} {
+	puts [reloadVm [getVmDirectory $id]]
 	refresh
 }
 
