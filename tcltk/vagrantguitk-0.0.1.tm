@@ -20,6 +20,9 @@ proc popupMenu {x y} {
 
 proc createGui {} {
 	option add *Menu.tearOff 0
+
+	wm title . {GUI for Vagrant}
+
 	menu .mbar
 	. configure -menu .mbar
 	.mbar add cascade -label File -menu .mbar.file -underline 0

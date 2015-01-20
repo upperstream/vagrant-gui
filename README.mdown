@@ -1,4 +1,4 @@
-# Vagrant GUI
+# GUI for Vagrant
 
 GUI front end for Vagrant
 
