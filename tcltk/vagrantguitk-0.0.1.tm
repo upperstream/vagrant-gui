@@ -25,14 +25,14 @@ proc createGui {} {
 
 	menu .mbar
 	. configure -menu .mbar
-	.mbar add cascade -label File -menu .mbar.file -underline 0
-	.mbar add cascade -label View -menu .mbar.view -underline 0
+	.mbar add cascade -label [msgcat::mc File] -menu .mbar.file -underline [msgcat::mc File_key]
+	.mbar add cascade -label [msgcat::mc View] -menu .mbar.view -underline [msgcat::mc View_key]
 	
 	menu .mbar.file
-	.mbar.file add command -label Exit -underline 1 -command { exit }
+	.mbar.file add command -label [msgcat::mc Exit] -underline [msgcat::mc Exit_key] -command { exit }
 	
 	menu .mbar.view
-	.mbar.view add command -label Refresh -underline 1 -command { refresh }
+	.mbar.view add command -label [msgcat::mc Refresh] -underline [msgcat::mc Refresh_key] -command { refresh }
 
 	set columns {id name provider state directory}
 	ttk::treeview .tree -columns $columns -displaycolumns $columns -show headings -selectmode browse \
@@ -58,10 +58,10 @@ proc createGui {} {
 	}
 
 	menu .popup_menu
-	.popup_menu add command -label Start -underline 0 -command { start [.tree selection] }
-	.popup_menu add command -label Suspend -underline 1 -command { suspend [.tree selection] }
-	.popup_menu add command -label Stop -underline 3 -command { stop [.tree selection] }
-	.popup_menu add command -label Reload -underline 2 -command { reload [.tree selection] }
+	.popup_menu add command -label [msgcat::mc Start] -underline [msgcat::mc Start_key] -command { start [.tree selection] }
+	.popup_menu add command -label [msgcat::mc Suspend] -underline [msgcat::mc Suspend_key] -command { suspend [.tree selection] }
+	.popup_menu add command -label [msgcat::mc Stop] -underline [msgcat::mc Stop_key] -command { stop [.tree selection] }
+	.popup_menu add command -label [msgcat::mc Reload] -underline [msgcat::mc Reload_key] -command { reload [.tree selection] }
 }
 
 proc alertDialog {msg} {

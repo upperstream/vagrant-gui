@@ -1,3 +1,4 @@
 *.mdown	eol=lf
+*.msg	eol=lf
 *.tcl	eol=lf
 *.tm	eol=lf

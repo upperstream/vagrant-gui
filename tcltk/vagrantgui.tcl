@@ -15,8 +15,13 @@
 # limitations under the License.
 
 package require Tk
+package require msgcat
 
-set path [file dirname [file normalize $argv0]]
+set path [file dirname [info script]]
+
+puts "Locale: [msgcat::mclocale]"
+msgcat::mcload [file join $path msgs]
+
 source [file join $path vagrantbridge-0.0.1.tm]
 source [file join $path vagrantguitk-0.0.1.tm]
 
@@ -61,7 +66,7 @@ proc isVmOff {id} {
 
 proc start {id} {
 	if {[isVmUp $id]} {
-		alertDialog "$id is already up"
+		alertDialog [msgcat::mc "%s is already up"]
 		return
 	}
 	global vms
@@ -71,7 +76,7 @@ proc start {id} {
 
 proc suspend {id} {
 	if {[isVmUp $id] != 1} {
-		alertDialog "$id is not running"
+		alertDialog [msgcat::mc "%s is not running"]
 		return
 	}
 	global vms
@@ -81,7 +86,7 @@ proc suspend {id} {
 
 proc stop {id} {
 	if {[isVmOff $id]} {
-		alertDialog "$id is already powered off"
+		alertDialog [format [msgcat::mc "%s is already powered off"] $id]
 		return
 	}
 	global vms
@@ -95,13 +100,13 @@ proc reload {id} {
 }
 
 if {[catch {lassign [getVersion] major minor micro} errorMessage]} {
-	set message "Can't find Vagrant ($errorMessage)"
+	set message [msgcat::mc "Can't find Vagrant (%s)"]
 	puts stderr $message
 	alertDialog $message
 	exit 1
 }
 if {$major < 1 || $minor < 6} {
-	set message "Vagrant version must be 1.6 onwards"
+	set message [msgcat::mc "Vagrant version must be 1.6 onwards"]
 	puts stderr $message
 	alertDialog $message
 	exit 1
