@@ -1,0 +1,1 @@
+# GUI for Vagrant (implemented using Electron)

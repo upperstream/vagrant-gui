@@ -1,3 +1,7 @@
+.gitignore eol=lf
+*.html eol=lf
+*.js eol=lf
+*.json eol=lf
 *.mdown	eol=lf
 *.msg	eol=lf
 *.tcl	eol=lf
