@@ -3,8 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>GUI for Vagrant</title>
+    <script src="./renderer.js"></script>
   </head>
   <body>
     <h1>GUI for Vagrant</h1>
+    <p>Vagrant version: <span id="vagrantVersion"></span></p>
+    <script>
+    try {
+      let version = vagrantGetVersion();
+      if (version[0] < 1 || version[1] < 6) {
+        window.alert("Vagrant version must be 1.6 onwards");
+        window.close();
+      }
+      document.getElementById('vagrantVersion').innerHTML =
+        "{0}.{1}.{2}".format(version[0], version[1], version[2]);
+    } catch (e) {
+      window.alert(e.message);
+      window.close();
+    }
+    </script>
   </body>
 </html>
