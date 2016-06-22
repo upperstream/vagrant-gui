@@ -1,12 +1,15 @@
 # GUI for Vagrant
 
-GUI front end for Vagrant
+GUI front end for [Vagrant]
 
 ## Subprojects:
 
 * [electron](electron/README.mdown) - Electron implementation
-* [tcltk](tcltk/README.mdown) - Tcl/Tk implementation
+* [tcltk](tcltk/README.mdown) - Implementation using [Tcl/Tk]
 * (other implementations might come later)
+
+[Tcl/Tk]: https://www.tcl.tk/ "Tcl Developer Site"
+[Vagrant]: https://www.vagrantup.com/ "Vagrant"
 
 ## Licensing
 
