@@ -8,6 +8,7 @@
   <body>
     <h1>GUI for Vagrant</h1>
     <p>Vagrant version: <span id="vagrantVersion"></span></p>
+    <p>Vagrant global status: <span id="vagrantGlobalStatus"></span></p>
     <script>
     try {
       let version = vagrantGetVersion();
@@ -21,6 +22,20 @@
       window.alert(e.message);
       window.close();
     }
+    let statuses = vagrantGetGlobalStatus((statuses) => {
+      let table = "<table border=\"1\"><tr><th>id</th><th>name</th><th>provider</th><th>state</th><th>directory</th></tr>";
+      for (i = 0; i < statuses.length; i++) {
+        table += "<tr>"
+          + "<td>" + statuses[i]['id'] + "</td>"
+          + "<td>" + statuses[i]['name'] + "</td>"
+          + "<td>" + statuses[i]['provider'] + "</td>"
+          + "<td>" + statuses[i]['state'] + "</td>"
+          + "<td>" + statuses[i]['directory'] + "</td>"
+          + "</tr>";
+      }
+      table += "</table>";
+      document.getElementById('vagrantGlobalStatus').innerHTML = table;
+    });
     </script>
   </body>
 </html>

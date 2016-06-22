@@ -44,6 +44,41 @@ function vagrantGetVersion() {
   return spawnSync.stdout.toString().split(/[\t ]+/, 2)[1];
 }
 
+/**
+ * Retrieves Vagrant global status.
+ * @param listener a listener that receives the result data.
+ */
+function vagrantGetGlobalStatusAsync(listener) {
+  let statuses = [];
+  const columnNames = ['id', 'name', 'provider', 'state', 'directory'];
+  let spawn = require('child_process').spawn('vagrant', ['global-status']);
+  let readline = require('readline').createInterface(spawn.stdout, {});
+  let ignore = false;
+  readline.on('line', (line) => {
+    line = line.trim();
+    if (line.length == 0) {
+      ignore = true;
+    }
+    if (!ignore) {
+      if (line.indexOf('id') == 0) {
+      } else if (line.indexOf('-----') == 0) {
+      } else {
+        let columns = line.split(/[\t ]+/, 5);
+        let status = {};
+        if (columns.length > 0) {
+          for (let i = 0; i < columns.length; i++) {
+            status[columnNames[i]] = columns[i];
+          }
+          statuses.push(status);
+        }
+      }
+    }
+  });
+  readline.on('close', () => {
+    listener(statuses);
+  });
+}
+
 app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
@@ -65,4 +100,14 @@ ipcMain.on('vagrant-get-version', (event) => {
   } catch (e) {
     event.returnValue = [null, 'Vagrant installation not found'];
   }
+});
+
+ipcMain.on('vagrant-get-global-status', (event) => {
+  event.returnValue = [vagrantGetGlobalStatus(), null];
+});
+
+ipcMain.on('vagrant-get-global-status-async', (event, arg) => {
+  vagrantGetGlobalStatusAsync((data) => {
+    event.sender.send('vagrant-get-global-status-async-reply', data);
+  });
 });

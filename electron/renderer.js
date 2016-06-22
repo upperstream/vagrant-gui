@@ -30,6 +30,18 @@ function vagrantGetVersion() {
 }
 
 /**
+ * Retrieves Vagrant global status.
+ * @return {array} array of VM statuses.
+ */
+function vagrantGetGlobalStatus(listener) {
+  const {ipcRenderer} = nodeRequire('electron');
+  ipcRenderer.on('vagrant-get-global-status-async-reply', (event, arg) => {
+    listener(arg);
+  });
+  ipcRenderer.send('vagrant-get-global-status-async');
+}
+
+/**
  * Formats a string.
  * Replaces "{i}" in this string (template string) with the designated arguments[i].
  * @param {array} arguments to be inserted into the template string.
