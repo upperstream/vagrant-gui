@@ -4,10 +4,11 @@ GUI front end for [Vagrant]
 
 ## Subprojects:
 
-* [electron](electron/README.mdown) - Electron implementation
+* [electron](electron/README.mdown) - Implementation using [Electron]
 * [tcltk](tcltk/README.mdown) - Implementation using [Tcl/Tk]
 * (other implementations might come later)
 
+[Electron]: http://electron.atom.io/ "Electron - Build cross platform desktop apps with JavaScript, HTML, and CSS."
 [Tcl/Tk]: https://www.tcl.tk/ "Tcl Developer Site"
 [Vagrant]: https://www.vagrantup.com/ "Vagrant"
 
