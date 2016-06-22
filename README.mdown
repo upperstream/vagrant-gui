@@ -1,8 +1,8 @@
 # GUI for Vagrant
 
-GUI front end for [Vagrant]
+Cross-platform GUI front end for [Vagrant]
 
-## Subprojects:
+## Subprojects
 
 * [electron](electron/README.mdown) - Implementation using [Electron]
 * [tcltk](tcltk/README.mdown) - Implementation using [Tcl/Tk]
