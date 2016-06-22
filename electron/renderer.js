@@ -34,7 +34,7 @@ function vagrantGetVersion() {
  * @return {array} array of VM statuses.
  */
 function vagrantGetGlobalStatus(listener) {
-  const {ipcRenderer} = nodeRequire('electron');
+  const {ipcRenderer} = require('electron');
   ipcRenderer.on('vagrant-get-global-status-async-reply', (event, arg) => {
     listener(arg);
   });
