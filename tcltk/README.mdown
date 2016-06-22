@@ -1,4 +1,4 @@
-# Tcl/Tk implementation of Vagrant GUI front end
+# GUI front end for Vagrant using Tcl/Tk
 
 ## Prerequisites
 
@@ -28,8 +28,8 @@ After [AtiveTcl] installed, double-click the file `vagrantgui.tcl`.
 
 ## Screenshot
 
-![Screenshot on Xubunt](screenshot.png "Screenshot on Xubuntu")
+![Screenshot on Xubuntu](screenshot.png "Screenshot on Xubuntu")
 
 ---
 
-Copyright &copy; 2015 Upper Stream Software.
+Copyright &copy; 2015, 2016 Upper Stream Software.

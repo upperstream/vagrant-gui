@@ -1,11 +1,14 @@
 # GUI for Vagrant
 
-GUI front end for Vagrant
+GUI front end for [Vagrant]
 
 ## Subprojects:
 
-* [tcltk](tcltk/README.mdown) - Tcl/Tk implementation
+* [tcltk](tcltk/README.mdown) - Implementation using [Tcl/Tk]
 * (other implementations might come later)
+
+[Tcl/Tk]: https://www.tcl.tk/ "Tcl Developer Site"
+[Vagrant]: https://www.vagrantup.com/ "Vagrant"
 
 ## Licensing
 
@@ -22,4 +25,4 @@ permissions and limitations under the License.
 
 ---
 
-Copyright &copy; 2015 Upper Stream Software.
+Copyright &copy; 2015, 2016 Upper Stream Software.
